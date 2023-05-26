@@ -289,8 +289,6 @@ MonoBehaviour:
   customActions:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   happenOnlyOnce: 0
   filterByTag: 1
   filterTag: Otto
@@ -830,8 +828,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody2D: {fileID: 0}
-  typeOfControl: 0
-  speed: 5
+  typeOfControl: 1
+  speed: 15
   movementType: 0
   orientToDirection: 1
   lookAxis: 0
@@ -1022,8 +1020,6 @@ MonoBehaviour:
   customActions:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   happenOnlyOnce: 0
   filterByTag: 0
   filterTag: Player
@@ -2071,8 +2067,6 @@ MonoBehaviour:
   customActions:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   happenOnlyOnce: 0
   filterByTag: 0
   filterTag: Player
@@ -2243,8 +2237,6 @@ MonoBehaviour:
   customActions:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   happenOnlyOnce: 0
   filterByTag: 0
   filterTag: Player
@@ -2450,8 +2442,6 @@ MonoBehaviour:
   customActions:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   happenOnlyOnce: 0
   filterByTag: 0
   filterTag: Player
@@ -2621,8 +2611,6 @@ MonoBehaviour:
   customActions:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   happenOnlyOnce: 0
   filterByTag: 1
   filterTag: Collectable
@@ -2868,8 +2856,6 @@ MonoBehaviour:
   customActions:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   happenOnlyOnce: 0
   filterByTag: 1
   filterTag: Clown
@@ -3136,8 +3122,6 @@ MonoBehaviour:
   customActions:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   happenOnlyOnce: 0
   filterByTag: 1
   filterTag: Magic
