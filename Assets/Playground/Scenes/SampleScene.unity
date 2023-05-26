@@ -1064,6 +1064,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1158,6 +1159,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72b7b19032fa3084bb8ffa93478b0499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &700609379
 GameObject:
   m_ObjectHideFlags: 0
@@ -3498,6 +3511,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2919925308967286972, guid: 6a7c4a386ebb34f47a717a380586eee2,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0.012000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919925308967286972, guid: 6a7c4a386ebb34f47a717a380586eee2,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0.012000024
+      objectReference: {fileID: 0}
     - target: {fileID: 3251908122111123329, guid: 6a7c4a386ebb34f47a717a380586eee2,
         type: 3}
       propertyPath: m_RootOrder
@@ -3516,7 +3539,7 @@ PrefabInstance:
     - target: {fileID: 3251908122111123329, guid: 6a7c4a386ebb34f47a717a380586eee2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -58.554688
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3251908122111123329, guid: 6a7c4a386ebb34f47a717a380586eee2,
         type: 3}
@@ -3557,6 +3580,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MapPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 6315781968447916920, guid: 6a7c4a386ebb34f47a717a380586eee2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8847250813689726636, guid: 6a7c4a386ebb34f47a717a380586eee2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a7c4a386ebb34f47a717a380586eee2, type: 3}

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public static class Utils
 {
@@ -44,29 +43,13 @@ public static class Utils
 		}
 	}
 
-	public static Vector2 GetVector2FromVector3(Vector3 input)
-	{
-		return new Vector2(input.x, input.y);
-	}
-
-	public static void DrawMoveArrowGizmo(Vector3 position, Vector2 direction, float extraAngle = 0f, float scale = 0f)
-	{
-		DrawGizmo(moveArrowMesh, position, direction, extraAngle, scale);
-	}
-
 	public static void DrawShootArrowGizmo(Vector3 position, Vector2 direction, float extraAngle = 0f, float scale = 0f)
 	{
 		DrawGizmo(shootArrowMesh, position, direction, extraAngle, scale);
 	}
 
-	public static void DrawRotateArrowGizmo(Vector3 position, float strength)
-	{
-		Gizmos.color = Color.green;
-		Gizmos.DrawMesh(rotateArrowMesh, position, Quaternion.identity, new Vector3(Mathf.Sign(strength), 1f, Mathf.Sign(strength)));
-	}
-
 	//Draws a gizmo in a certain direction, with support for an extraAngle (to make it relative to the GameObject's rotation) and a specific scale
-	public static void DrawGizmo(Mesh meshToDraw, Vector3 position, Vector2 direction, float extraAngle, float scale)
+	private static void DrawGizmo(Mesh meshToDraw, Vector3 position, Vector2 direction, float extraAngle, float scale)
 	{
 		Gizmos.color = Color.green;
 		float arrowAngle = Angle(direction);

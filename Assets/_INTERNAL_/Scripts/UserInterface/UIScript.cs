@@ -28,41 +28,24 @@ public class UIScript : MonoBehaviour
 	// Internal variables to keep track of score, health, and resources, win state
 	private int[] scores = new int[2];
 	private int[] playersHealth = new int[2];
-	private Dictionary<int, ResourceStruct> resourcesDict = new Dictionary<int, ResourceStruct>(); //holds a reference to all the resources collected, and to their UI
-    private bool gameOver = false; //this gets changed when the game is won OR lost
+	private Dictionary<int, ResourceStruct> resourcesDict = new(); //holds a reference to all the resources collected, and to their UI
+    private bool gameOver; //this gets changed when the game is won OR lost
 
 
 	private void Start()
 	{
-		if(numberOfPlayers == Players.OnePlayer)
+		if (numberOfPlayers == Players.OnePlayer) return;
+
+		if (gameType == GameType.Score)
 		{
-			// No setup needed
+			rightLabel.text = leftLabel.text = "Score";
+			numberLabels[0].text = numberLabels[1].text = "0";
+			scores[0] = scores[1] = 0;
 		}
 		else
 		{
-			if(gameType == GameType.Score)
-			{
-				// Show the 2-player score interface
-				rightLabel.text = leftLabel.text = "Score";
-
-				// Show the score as 0 for both players
-				numberLabels[0].text = numberLabels[1].text = "0";
-				scores[0] = scores[1] = 0;
-			}
-			else
-			{
-				// Show the 2-player life interface
-				rightLabel.text = leftLabel.text = "Life";
-
-				// Life will be provided by the PlayerHealth components
-			}
+			rightLabel.text = leftLabel.text = "Life";
 		}
-	}
-
-	//version of the one below with one parameter to be able to connect UnityEvents
-	public void AddOnePoint(int playerNumber)
-	{
-		AddPoints(playerNumber, 1);
 	}
 
 
@@ -86,46 +69,24 @@ public class UIScript : MonoBehaviour
 		}
 	}
 
-	//currently unused by other Playground scripts
-	public void RemoveOnePoint(int playerNumber)
+	private void GameWon(int playerNumber)
 	{
-		scores[playerNumber]--;
-
-		if(numberOfPlayers == Players.OnePlayer)
-		{
-			numberLabels[1].text = scores[playerNumber].ToString(); //with one player, the score is on the right
-		}
-		else
-		{
-			numberLabels[playerNumber].text = scores[playerNumber].ToString();
-		}
+		if (gameOver) return;
+		
+		gameOver = true;
+		winLabel.text = "Player " + ++playerNumber + " wins!";
+		statsPanel.SetActive(false);
+		winPanel.SetActive(true);
 	}
 
 
-
-	public void GameWon(int playerNumber)
+	private void GameOver()
 	{
-		// only set game over UI if game is not over
-	    if (!gameOver)
-	    {
-			gameOver = true;
-			winLabel.text = "Player " + ++playerNumber + " wins!";
-			statsPanel.SetActive(false);
-			winPanel.SetActive(true);
-		}
-	}
-
-
-
-	public void GameOver(int playerNumber)
-	{
-        // only set game over UI if game is not over
-	    if (!gameOver)
-	    {
-			gameOver = true;
-	        statsPanel.SetActive(false);
-	        gameOverPanel.SetActive(true);
-	    }
+		if (gameOver) return;
+		
+		gameOver = true;
+		statsPanel.SetActive(false);
+		gameOverPanel.SetActive(true);
 	}
 
 
@@ -145,7 +106,7 @@ public class UIScript : MonoBehaviour
 		if(gameType != GameType.Endless
 			&& playersHealth[playerNumber] <= 0)
 		{
-			GameOver(playerNumber);
+			GameOver();
 		}
 
 	}
@@ -157,15 +118,13 @@ public class UIScript : MonoBehaviour
 	{
 		if(resourcesDict.ContainsKey(resourceType))
 		{
-			//update the dictionary key
 			int newAmount = resourcesDict[resourceType].amount + pickedUpAmount;
 			resourcesDict[resourceType].UIItem.ShowNumber(newAmount);
 			resourcesDict[resourceType].amount = newAmount;
 		}
 		else
 		{
-			//create the UIItemScript and display the icon
-			UIItemScript newUIItem = Instantiate<GameObject>(resourceItemPrefab).GetComponent<UIItemScript>();
+			UIItemScript newUIItem = Instantiate(resourceItemPrefab).GetComponent<UIItemScript>();
 			newUIItem.transform.SetParent(inventory, false);
 
 			resourcesDict.Add(resourceType, new ResourceStruct(pickedUpAmount, newUIItem));
@@ -174,56 +133,19 @@ public class UIScript : MonoBehaviour
 			resourcesDict[resourceType].UIItem.DisplayIcon(graphics);
 		}
 	}
-
-
-	//checks if a certain resource is in the inventory, in the needed quantity
-	public bool CheckIfHasResources(int resourceType, int amountNeeded = 1)
-	{
-		if(resourcesDict.ContainsKey(resourceType))
-		{
-			if(resourcesDict[resourceType].amount >= amountNeeded)
-			{
-				return true;
-			}
-			else
-			{
-				//not enough
-				return false;
-			}
-		}
-		else
-		{
-			//resource not present
-			return false;
-		}
-	}
-
-
-	//to use only before checking that the resource is in the dictionary
-	public void ConsumeResource(int resourceType, int amountNeeded = 1)
-	{
-		resourcesDict[resourceType].amount -= amountNeeded;
-		resourcesDict[resourceType].UIItem.ShowNumber(resourcesDict[resourceType].amount);
-	}
-
-
+	
 	public enum Players
 	{
 		OnePlayer = 0,
-		TwoPlayers
 	}
 
 	public enum GameType
 	{
 		Score = 0,
-		Life,
 		Endless
 	}
 }
 
-
-
-//just a virtual representation of the resources for the private dictionary
 public class ResourceStruct
 {
 	public int amount;

@@ -5,9 +5,6 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Move : Physics2DObject
 {
-	[Header("Input keys")]
-	public Enums.KeyGroups typeOfControl = Enums.KeyGroups.ArrowKeys;
-
 	[Header("Movement")]
 	[Tooltip("Speed of movement")]
 	public float speed = 5f;
@@ -26,17 +23,9 @@ public class Move : Physics2DObject
 	// Update gets called every frame
 	void Update ()
 	{	
-		// Moving with the arrow keys
-		if(typeOfControl == Enums.KeyGroups.ArrowKeys)
-		{
-			moveHorizontal = Input.GetAxis("Horizontal");
-			moveVertical = Input.GetAxis("Vertical");
-		}
-		else
-		{
-			moveHorizontal = Input.GetAxis("Horizontal2");
-			moveVertical = Input.GetAxis("Vertical2");
-		}
+		
+		moveHorizontal = Input.GetAxis("Horizontal");
+		moveVertical = Input.GetAxis("Vertical");
 
 		//zero-out the axes that are not needed, if the movement is constrained
 		switch(movementType)

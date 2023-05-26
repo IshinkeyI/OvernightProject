@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MoveWithObj : MonoBehaviour
 {
@@ -8,6 +6,7 @@ public class MoveWithObj : MonoBehaviour
     private GameObject target;
     void Update()
     {
+        if (target == null) return;
         transform.position = target.transform.position;    
     }
 }

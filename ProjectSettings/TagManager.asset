@@ -16,6 +16,7 @@ TagManager:
   - Collectable
   - Mimic
   - Magia
+  - Door
   layers:
   - Default
   - TransparentFX

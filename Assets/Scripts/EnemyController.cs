@@ -18,7 +18,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(target == null) return;
         if (Vector2.Distance(transform.position, target.position) < playerDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, Time.deltaTime * clownSpeed);

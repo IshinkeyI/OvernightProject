@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RoomCollision : MonoBehaviour
 {
@@ -9,7 +7,6 @@ public class RoomCollision : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            print("trocaPos");
             CameraController.instance.SetPosition(new Vector2(this.transform.position.x, this.transform.position.y));
         }
     }

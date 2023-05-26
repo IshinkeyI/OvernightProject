@@ -1,18 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public class Enums
+﻿public class Enums
 {
-	public enum Players
-	{
-		Player = 0,
-		Player2 = 1,
-	}
-
 	public enum Axes
 	{
-		X,
-		Y
+		X
 	}
 
 	public enum MovementType
@@ -30,15 +20,9 @@ public class Enums
 		Left,
 	}
 
-	public enum KeyGroups
-	{
-		ArrowKeys,
-		WASD,
-	}
-
 	public enum Targets
 	{
-		ThisObject,
+		None,
 		ObjectThatCollided,
 	}
 }

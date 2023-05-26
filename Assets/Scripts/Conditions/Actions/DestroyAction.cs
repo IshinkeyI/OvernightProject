@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 [AddComponentMenu("Playground/Actions/Destroy Action")]
 public class DestroyAction : Action
@@ -8,6 +9,7 @@ public class DestroyAction : Action
 	public Enums.Targets target = Enums.Targets.ObjectThatCollided;
 	// assign an effect (explosion? particles?) or object to be created (instantiated) when the one gets destroyed
 	public GameObject deathEffect;
+	public bool isPlayer = false;
 
 
 	//OtherObject is null when this Action is called from a Condition that is not collision-based
@@ -33,6 +35,8 @@ public class DestroyAction : Action
 		else
 		{
 			Destroy(gameObject);
+			if(isPlayer)
+				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
 
 		return true; //always returns true
