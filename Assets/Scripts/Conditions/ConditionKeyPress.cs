@@ -22,10 +22,6 @@ public class ConditionKeyPress : ConditionBase
 	{
 		timeLastEventFired = -frequency;
 	}
-
-
-
-
 	private void Update()
 	{
 		switch(eventType)

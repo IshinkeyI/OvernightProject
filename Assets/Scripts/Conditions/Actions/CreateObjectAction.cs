@@ -14,7 +14,7 @@ public class CreateObjectAction : Action
 		if(prefabToCreate != null)
 		{
 			//create the new object by copying the prefab
-			GameObject newObject = Instantiate<GameObject>(prefabToCreate);
+			GameObject newObject = Instantiate(prefabToCreate);
 
 			//is the position relative or absolute?
 			Vector2 finalPosition = newPosition;

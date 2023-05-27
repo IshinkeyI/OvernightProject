@@ -29,11 +29,12 @@ public class UIScript : MonoBehaviour
 	private int[] scores = new int[2];
 	private int[] playersHealth = new int[2];
 	private Dictionary<int, ResourceStruct> resourcesDict = new(); //holds a reference to all the resources collected, and to their UI
-    private bool gameOver; //this gets changed when the game is won OR lost
+    private bool gameOver = false; //this gets changed when the game is won OR lost
 
 
 	private void Start()
 	{
+		Debug.Log(gameObject.name);
 		if (numberOfPlayers == Players.OnePlayer) return;
 
 		if (gameType == GameType.Score)
@@ -53,9 +54,10 @@ public class UIScript : MonoBehaviour
 	{
 		scores[playerNumber] += amount;
 
-		if(numberOfPlayers == Players.OnePlayer)
+		if (numberOfPlayers == Players.OnePlayer)
 		{
-			numberLabels[1].text = scores[playerNumber].ToString(); //with one player, the score is on the right
+			numberLabels[1].text = scores[playerNumber]
+			                       + "|" + FindObjectOfType<TicketManager>().AllTicketsCount;
 		}
 		else
 		{
